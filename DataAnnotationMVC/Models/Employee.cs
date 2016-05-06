@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 
 namespace DataAnnotationMVC.Models
@@ -14,6 +15,7 @@ namespace DataAnnotationMVC.Models
 
         [Required(ErrorMessage="Please enter user name")]
         [ExcludeChar(@"/.,!@#$%^~*()_-+=`{}[]|\?><")]
+        [Remote("CheckUser", "Home")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage="Please enter first name")]

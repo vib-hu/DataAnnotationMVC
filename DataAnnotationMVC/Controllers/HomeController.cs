@@ -31,5 +31,18 @@ namespace DataAnnotationMVC.Controllers
             }
             return View("Index", e);
         }
+        public JsonResult CheckUser(String value)
+        {
+
+            if (value != null)
+            {
+                if (value.ToLower() == "vibhu")
+                {
+                    return new JsonResult();
+                }
+            
+            }
+        
+        }
     }
 }
