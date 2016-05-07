@@ -15,7 +15,7 @@ namespace DataAnnotationMVC.Models
 
         [Required(ErrorMessage="Please enter user name")]
         [ExcludeChar(@"/.,!@#$%^~*()_-+=`{}[]|\?><")]
-        [Remote("CheckUser", "Home")]
+        [Remote("CheckUser", "Home",ErrorMessage="User name already exists.")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage="Please enter first name")]

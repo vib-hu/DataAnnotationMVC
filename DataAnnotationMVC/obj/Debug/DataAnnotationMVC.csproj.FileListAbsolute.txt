@@ -16,3 +16,10 @@ c:\users\vibhu.mishra\documents\visual studio 2013\Projects\DataAnnotationMVC\Da
 c:\users\vibhu.mishra\documents\visual studio 2013\Projects\DataAnnotationMVC\DataAnnotationMVC\obj\Debug\DataAnnotationMVC.csprojResolveAssemblyReference.cache
 c:\users\vibhu.mishra\documents\visual studio 2013\Projects\DataAnnotationMVC\DataAnnotationMVC\obj\Debug\DataAnnotationMVC.dll
 c:\users\vibhu.mishra\documents\visual studio 2013\Projects\DataAnnotationMVC\DataAnnotationMVC\obj\Debug\DataAnnotationMVC.pdb
+C:\Users\vibhu.mishra\Documents\Visual Studio 2013\Projects\DataAnnotationMVC\DataAnnotationMVC\bin\Antlr3.Runtime.dll
+C:\Users\vibhu.mishra\Documents\Visual Studio 2013\Projects\DataAnnotationMVC\DataAnnotationMVC\bin\Newtonsoft.Json.dll
+C:\Users\vibhu.mishra\Documents\Visual Studio 2013\Projects\DataAnnotationMVC\DataAnnotationMVC\bin\System.Web.Optimization.dll
+C:\Users\vibhu.mishra\Documents\Visual Studio 2013\Projects\DataAnnotationMVC\DataAnnotationMVC\bin\WebGrease.dll
+C:\Users\vibhu.mishra\Documents\Visual Studio 2013\Projects\DataAnnotationMVC\DataAnnotationMVC\bin\Antlr3.Runtime.pdb
+C:\Users\vibhu.mishra\Documents\Visual Studio 2013\Projects\DataAnnotationMVC\DataAnnotationMVC\bin\Newtonsoft.Json.xml
+C:\Users\vibhu.mishra\Documents\Visual Studio 2013\Projects\DataAnnotationMVC\DataAnnotationMVC\bin\System.Web.Optimization.xml

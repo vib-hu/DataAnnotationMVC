@@ -31,18 +31,18 @@ namespace DataAnnotationMVC.Controllers
             }
             return View("Index", e);
         }
-        public JsonResult CheckUser(String value)
+
+        public ActionResult CheckUser(String UserName)
         {
 
-            if (value != null)
+            if (UserName != null)
             {
-                if (value.ToLower() == "vibhu")
+                if (UserName.ToLower() == "vibhu")
                 {
-                    return new JsonResult();
+                    return Json(false, JsonRequestBehavior.AllowGet);
                 }
-            
             }
-        
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
     }
 }
