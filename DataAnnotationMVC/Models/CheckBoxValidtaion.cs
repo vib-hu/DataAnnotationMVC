@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace DataAnnotationMVC.Models
 {
-    public class CheckBoxValidtaion:ValidationAttribute
+    public class CheckBoxValidtaion:ValidationAttribute,IClientValidatable
     {
         public CheckBoxValidtaion():base("Please select checkbox")
         {
@@ -23,6 +24,17 @@ namespace DataAnnotationMVC.Models
                 }
             }
             return ValidationResult.Success;
+        }
+
+        public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
+        {
+
+            ModelClientValidationRule rule = new ModelClientValidationRule();
+            rule.ValidationType = "checkbox";
+            rule.ErrorMessage = FormatErrorMessage(metadata.GetDisplayName());
+            rule.ValidationParameters.Add("check",true);
+
+            yield return rule;
         }
 
     }

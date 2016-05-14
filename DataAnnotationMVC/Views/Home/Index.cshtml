@@ -5,6 +5,7 @@
     ViewBag.Title = "Index";
 }
 
+
 <h2>Index</h2>
 
 
@@ -18,15 +19,15 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-          @Html.LabelFor(model => model.UserName, htmlAttributes: new {@class="control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model=>model.UserName,htmlAttributes:new {@class="form-control"})
-                @Html.ValidationMessageFor(model => model.UserName, "", new {@class="text-danger"})
+          @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 form-inline">
+                @Html.TextBoxFor(model => model.UserName, htmlAttributes: new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-10 form-inline">
                 @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" } )
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
             </div>
@@ -34,15 +35,23 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-10 form-inline">
                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.State, htmlAttributes: new {@class="control-label col-md-2" })
+            <div class="col-md-10 form-inline">
+                @Html.DropDownListFor(model => model.State, (IEnumerable<SelectListItem>)ViewBag.States,htmlAttributes: new {@class="form-control"  })
+                @Html.ValidationMessageFor(model => model.State, "", new {@class="text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Lob, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-10 form-inline">
                 @Html.EditorFor(model => model.Lob, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Lob, "", new { @class = "text-danger" })
             </div>
@@ -50,10 +59,11 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.IsChecked, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.CheckBoxFor(model => model.IsChecked, new { @class = "left" } )
+            <div class="col-md-10 form-inline">
+                @Html.CheckBoxFor(model => model.IsChecked, new { @class = "left" })
                 @Html.ValidationMessageFor(model => model.IsChecked, "", new { @class = "text-danger" })
             </div>
+
         </div>
 
         <div class="form-group">
@@ -73,3 +83,45 @@
 @*<script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
 @Scripts.Render("~/bundles/JqryVal")
+
+<script>
+    $.validator.unobtrusive.adapters.addSingleVal("exclude", "exchar");
+
+    $.validator.addMethod("exclude", function (inputValue, inputElement, exchar) {
+        var returnVal = true;
+        try {
+            if (String(inputValue).indexOf('@@') > -1) {
+
+                console.log(exchar);
+                console.log(inputValue);
+                returnVal =false;
+            }
+            else { returnVal = true; }
+        }
+        catch (err) {
+            returnVal = false;
+        }
+
+        return returnVal;
+
+    });
+
+    $.validator.unobtrusive.adapters.addSingleVal("checkbox", "check");
+
+    $.validator.addMethod("checkbox", function (inputValue, inputElement, check) {
+        var returnVal = true;
+        try {
+            
+            if (inputValue == "true") {
+                returnVal = true;
+            }
+            else { returnVal = false; }
+        }
+        catch (err) {
+            returnVal = false;
+        }
+
+        return returnVal;
+
+    });
+</script>

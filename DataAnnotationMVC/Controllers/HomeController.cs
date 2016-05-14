@@ -13,6 +13,15 @@ namespace DataAnnotationMVC.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+
+            SelectList lst = new SelectList(new SelectListItem[]{ 
+            new SelectListItem{Text="Select State",Value="",Selected=true},
+            new SelectListItem { Text = "UP", Value = "1" },
+            new SelectListItem{Text="Odisa",Value="2"},
+            new SelectListItem{Text="Bihar",Value="3"}},"Value","Text");
+
+            ViewBag.States = lst;
+
             return View();
         }
         
@@ -25,16 +34,22 @@ namespace DataAnnotationMVC.Controllers
 
             }
             else
-            { 
-            
+            {
             
             }
+            SelectList lst = new SelectList(new SelectListItem[]{ 
+            new SelectListItem{Text="Select State",Value="",Selected=true},
+            new SelectListItem { Text = "UP", Value = "1" },
+            new SelectListItem{Text="Odisa",Value="2"},
+            new SelectListItem{Text="Bihar",Value="3"}}, "Value", "Text");
+
+            ViewBag.States = lst;
+            
             return View("Index", e);
         }
 
         public ActionResult CheckUser(String UserName)
         {
-
             if (UserName != null)
             {
                 if (UserName.ToLower() == "vibhu")
